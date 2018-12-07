@@ -8,7 +8,11 @@
 import Foundation
 
 public class MeshState: NSObject, Codable {
-    public var name: String
+    public var name             : String
+    public var provisioners     : [MeshProvisionerEntry]
+    public var meshUUID         : UUID
+    public var version          : String
+    public var timeStamp        : Date
     public var nextUnicast      : Data
     public var provisionedNodes : [MeshNodeEntry]
     public var netKey           : Data
@@ -17,7 +21,7 @@ public class MeshState: NSObject, Codable {
     public var globalTTL        : Data
     public var unicastAddress   : Data
     public var flags            : Data
-    public var appKeys          : [[String: Data]]
+    public var appKeys          : [AppKeyEntry]
     
     public func deviceKeyForUnicast(_ aUnicastAddress: Data) -> Data? {
         for aNode in provisionedNodes {
@@ -28,8 +32,12 @@ public class MeshState: NSObject, Codable {
         return nil
     }
 
-    public init(withNodeList aNodeList: [MeshNodeEntry], netKey aNetKey: Data, keyIndex aKeyIndex: Data, IVIndex anIVIndex: Data, globalTTL aTTL: UInt8, unicastAddress aUnicastAddress: Data, flags someFlags: Data, appKeys someKeys: [[String: Data]], andName aName: String) {
+    public init(withName aName: String, version aVersion: String, identifier anIdentifier: UUID, timestamp aTimestamp: Date, provisionerList: [MeshProvisionerEntry], nodeList aNodeList: [MeshNodeEntry], netKey aNetKey: Data, keyIndex aKeyIndex: Data, IVIndex anIVIndex: Data, globalTTL aTTL: UInt8, unicastAddress aUnicastAddress: Data, flags someFlags: Data, appKeys someKeys: [AppKeyEntry]) {
+        version             = aVersion
+        meshUUID            = anIdentifier
+        timeStamp           = aTimestamp
         provisionedNodes    = aNodeList
+        provisioners        = provisionerList
         netKey              = aNetKey
         keyIndex            = aKeyIndex
         IVIndex             = anIVIndex

@@ -25,12 +25,15 @@ class StateRestoration: XCTestCase {
         nodes.append(MeshNodeEntry(withName: "Node 3",
                                    provisionDate: testTimestamp3, nodeId: Data([0xFE, 0xAF]),
                                    andDeviceKey: Data([0xDE, 0xEA])))
-        let appKeys = [["testKey1": Data([0x00, 0x01, 0x02])],
-                       ["testKey2": Data([0x03, 0x04, 0x05])]]
-        let state = MeshState(withNodeList: nodes,
-                              netKey: Data([0xFF, 0xAA, 0xFF]), keyIndex: Data([0x0F]),
-                              IVIndex: Data([0x12, 0x34, 0x56]), globalTTL: 0x0A, unicastAddress: Data([0x00, 0x01]),
-                              flags: Data([0x0A]), appKeys: appKeys, andName: "My Mesh")
+        let appKeys = [
+            AppKeyEntry(withName: "testKey1", andKey: Data([0x00, 0x01, 0x02]), atIndex: 0),
+            AppKeyEntry(withName: "testKey1", andKey: Data([0x03, 0x04, 0x05]), atIndex: 1)
+        ]
+        let state = MeshState(withName: "My Mesh", version: "1.0", identifier: UUID(), timestamp: Date(), provisionerList: [], nodeList: nodes, netKey: Data([0xFF, 0xAA, 0xFF]), keyIndex: Data([0x0F]), IVIndex: Data([0x12, 0x34, 0x56]), globalTTL: 0x0A, unicastAddress: Data([0x00, 0x01]), flags: Data([0x0A]), appKeys: appKeys)
+//        let state = MeshState(withNodeList: nodes,
+//                              netKey: Data([0xFF, 0xAA, 0xFF]), keyIndex: Data([0x0F]),
+//                              IVIndex: Data([0x12, 0x34, 0x56]), globalTTL: 0x0A, unicastAddress: Data([0x00, 0x01]),
+//                              flags: Data([0x0A]), appKeys: appKeys, andName: "My Mesh")
 
         //Preservation
         let manager = MeshStateManager(withState: state)

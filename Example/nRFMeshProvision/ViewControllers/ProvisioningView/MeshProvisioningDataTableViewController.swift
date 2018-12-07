@@ -217,8 +217,8 @@ class MeshProvisioningDataTableViewController: UITableViewController, UITextFiel
         let meshState = meshManager.stateManager().state()
         netKeyIndex = meshState.keyIndex
         let appKey = meshState.appKeys[anIndex]
-        appKeyName = appKey.keys.first
-        appKeyData = appKey.values.first
+        appKeyName = appKey.name
+        appKeyData = appKey.key
         let anAppKeyIndex = UInt16(anIndex)
         appKeyIndex = Data([UInt8((anAppKeyIndex & 0xFF00) >> 8), UInt8(anAppKeyIndex & 0x00FF)])
         appKeyCell.textLabel?.text = appKeyName

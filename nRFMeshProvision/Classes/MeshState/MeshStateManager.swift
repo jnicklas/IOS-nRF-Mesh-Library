@@ -53,32 +53,27 @@ public class MeshStateManager: NSObject {
 
     public func generateState() -> Bool {
         let networkKey = generateRandomKey()
-        
+
         guard networkKey != nil else {
             print("Failed to generate network key")
             return false
         }
+
         let keyIndex = Data([0x00, 0x00])
         let flags = Data([0x00])
         let ivIndex = Data([0x00, 0x00, 0x00, 0x00])
         let unicastAddress = Data([0x01, 0x23])
         let globalTTL: UInt8 = 5
         let networkName = "My Network"
-        let appkey1 = generateRandomKey()
-        let appkey2 = generateRandomKey()
-        let appkey3 = generateRandomKey()
 
-        guard appkey1 != nil, appkey2 != nil, appkey3 != nil else {
-            print("Failed to generate appkeys")
-            return false
-        }
-        
-        let appKeys = [["AppKey 1": appkey1!],
-                       ["AppKey 2": appkey2!],
-                       ["AppKey 3": appkey3!]]
-        let newState = MeshState(withNodeList: [], netKey: networkKey!, keyIndex: keyIndex,
-                              IVIndex: ivIndex, globalTTL: globalTTL, unicastAddress: unicastAddress,
-                              flags: flags, appKeys: appKeys, andName: networkName)
+        let appKeys: [AppKeyEntry] = [
+            AppKeyEntry(withName: "AppKey 1", andKey: generateRandomKey()!, atIndex: 0),
+            AppKeyEntry(withName: "AppKey 2", andKey: generateRandomKey()!, atIndex: 1),
+            AppKeyEntry(withName: "AppKey 3", andKey: generateRandomKey()!, atIndex: 2)
+        ]
+
+        let provisioner = MeshProvisionerEntry(withName: "iOS Provisioner", uuid: UUID(), andUnicastRange: AllocatedUnicastRange(withLowAddress: "0x0001", andHighAddress: "0x0100"))
+        let newState = MeshState(withName: networkName, version: "1.0", identifier: UUID(), timestamp: Date(), provisionerList: [provisioner], nodeList: [], netKey: networkKey!, keyIndex: keyIndex, IVIndex: ivIndex, globalTTL: globalTTL, unicastAddress: unicastAddress, flags: flags, appKeys: appKeys)
         self.meshState = newState
 
         return true
