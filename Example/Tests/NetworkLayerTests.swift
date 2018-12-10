@@ -103,7 +103,8 @@ class NetworkLayerTests: XCTestCase {
                                               0x8B, 0x8C, 0x28, 0x51, 0x2E, 0x79, 0x2D,
                                               0x37, 0x11, 0xF4, 0xB5, 0x26])]
         let appKeys = [AppKeyEntry(withName: "testKey1", andKey: Data([0xBE, 0xEF]), atIndex: 0)]
-        let testState = MeshState(withName: "My test network", version: "1.0", identifier: UUID(), timestamp: Date(), provisionerList: [], nodeList: [], netKey: netKey, keyIndex: Data([0x00]), IVIndex: ivIndex, globalTTL: 0x00, unicastAddress: srcAddr, flags: Data([0x00]), appKeys: appKeys)
+        let netKeys = [NetworkKeyEntry(withName: "Main NetKey", andKey: netKey, oldKey: nil, atIndex: Data([0x00]), phase: ivIndex, andMinSecurity: .high)]
+        let testState = MeshState(withName: "My test network", version: "1.0", identifier: UUID(), timestamp: Date(), provisionerList: [], nodeList: [], netKeys: netKeys, globalTTL: 0x00, unicastAddress: srcAddr, andAppKeys: appKeys)
         let whitelistMessage = SetFilterTypeMessage(withFilterType: MeshFilterTypes.whiteList)
         let payloads = whitelistMessage.assemblePayload(withMeshState: testState, toAddress: dstAddr)
         XCTAssert(payloads?.count == expectedNetworkLayerPDUs.count, "Incorrect number of network PDUs created")

@@ -15,13 +15,10 @@ public class MeshState: NSObject, Codable {
     public var timeStamp        : Date
     public var nextUnicast      : Data
     public var provisionedNodes : [MeshNodeEntry]
-    public var netKey           : Data
-    public var keyIndex         : Data
-    public var IVIndex          : Data
+    public var netKeys          : [NetworkKeyEntry]
+    public var appKeys          : [AppKeyEntry]
     public var globalTTL        : Data
     public var unicastAddress   : Data
-    public var flags            : Data
-    public var appKeys          : [AppKeyEntry]
     
     public func deviceKeyForUnicast(_ aUnicastAddress: Data) -> Data? {
         for aNode in provisionedNodes {
@@ -32,20 +29,17 @@ public class MeshState: NSObject, Codable {
         return nil
     }
 
-    public init(withName aName: String, version aVersion: String, identifier anIdentifier: UUID, timestamp aTimestamp: Date, provisionerList: [MeshProvisionerEntry], nodeList aNodeList: [MeshNodeEntry], netKey aNetKey: Data, keyIndex aKeyIndex: Data, IVIndex anIVIndex: Data, globalTTL aTTL: UInt8, unicastAddress aUnicastAddress: Data, flags someFlags: Data, appKeys someKeys: [AppKeyEntry]) {
+    public init(withName aName: String, version aVersion: String, identifier anIdentifier: UUID, timestamp aTimestamp: Date, provisionerList: [MeshProvisionerEntry], nodeList aNodeList: [MeshNodeEntry], netKeys aNetKeyList: [NetworkKeyEntry], globalTTL aTTL: UInt8, unicastAddress aUnicastAddress: Data, andAppKeys anAppKeyList: [AppKeyEntry]) {
+        name                = aName
         version             = aVersion
         meshUUID            = anIdentifier
         timeStamp           = aTimestamp
         provisionedNodes    = aNodeList
         provisioners        = provisionerList
-        netKey              = aNetKey
-        keyIndex            = aKeyIndex
-        IVIndex             = anIVIndex
+        netKeys             = aNetKeyList
         globalTTL           = Data([aTTL])
         unicastAddress      = aUnicastAddress
-        flags               = someFlags
-        name                = aName
-        appKeys             = someKeys
+        appKeys             = anAppKeyList
         nextUnicast         = Data([0x00,0x01])
     }
 

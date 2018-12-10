@@ -58,10 +58,8 @@ public class MeshStateManager: NSObject {
             print("Failed to generate network key")
             return false
         }
-
-        let keyIndex = Data([0x00, 0x00])
-        let flags = Data([0x00])
-        let ivIndex = Data([0x00, 0x00, 0x00, 0x00])
+        
+        let netKey = NetworkKeyEntry(withName: "Main NetKey", andKey: networkKey!, oldKey: nil, atIndex: Data([0x00, 0x00]), phase: Data([0x00, 0x00, 0x00, 0x00]), andMinSecurity: .high)
         let unicastAddress = Data([0x01, 0x23])
         let globalTTL: UInt8 = 5
         let networkName = "My Network"
@@ -73,7 +71,7 @@ public class MeshStateManager: NSObject {
         ]
 
         let provisioner = MeshProvisionerEntry(withName: "iOS Provisioner", uuid: UUID(), andUnicastRange: AllocatedUnicastRange(withLowAddress: "0x0001", andHighAddress: "0x0100"))
-        let newState = MeshState(withName: networkName, version: "1.0", identifier: UUID(), timestamp: Date(), provisionerList: [provisioner], nodeList: [], netKey: networkKey!, keyIndex: keyIndex, IVIndex: ivIndex, globalTTL: globalTTL, unicastAddress: unicastAddress, flags: flags, appKeys: appKeys)
+        let newState = MeshState(withName: networkName, version: "1.0", identifier: UUID(), timestamp: Date(), provisionerList: [provisioner], nodeList: [], netKeys: [netKey], globalTTL: globalTTL, unicastAddress: unicastAddress, andAppKeys: appKeys)
         self.meshState = newState
 
         return true
