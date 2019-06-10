@@ -222,7 +222,7 @@ public class ProvisionedMeshNode: NSObject, ProvisionedMeshNodeProtocol {
         return peripheral
     }
 
-    func discoveredServicesAndCharacteristics() -> (proxyService: CBService?, dataInCharacteristic: CBCharacteristic?, dataOutCharacteristic: CBCharacteristic?) {
+    public func discoveredServicesAndCharacteristics() -> (proxyService: CBService?, dataInCharacteristic: CBCharacteristic?, dataOutCharacteristic: CBCharacteristic?) {
         return (proxyService, proxyDataIn, proxyDataOut)
     }
 
