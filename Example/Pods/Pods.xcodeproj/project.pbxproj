@@ -106,6 +106,9 @@
 		B55585C080577D2387CD8E9D17F85099 /* Pods-nRFMeshProvision_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7504659A2B60307F9FB73C38D6F9E42C /* Pods-nRFMeshProvision_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B7406DCDF2D69205035B10DCB5B42C90 /* ModelPublicationSetMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2CC999D06E82196B445B627CAE3DAE /* ModelPublicationSetMessage.swift */; };
 		B772DF449C0C589F3516A48DBB13C41A /* OutputOutOfBoundActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB6656AD27B61B83A759043C7CB4B9 /* OutputOutOfBoundActions.swift */; };
+		B77FB10B22B113CF007421F5 /* ModelSubscriptionListMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FB10A22B113CF007421F5 /* ModelSubscriptionListMessage.swift */; };
+		B77FB10D22B11435007421F5 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FB10C22B11435007421F5 /* ModelType.swift */; };
+		B77FB10F22B11476007421F5 /* ModelSubscriptionGetMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FB10E22B11476007421F5 /* ModelSubscriptionGetMessage.swift */; };
 		B7DDE2B356F0CE60DB1559AB19161CF0 /* ModelAppUnbindConfiguratorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB09294E105B48781AA71892CD3B2F /* ModelAppUnbindConfiguratorState.swift */; };
 		B8442105DFDF67F56C5063E6BF9CFBBC /* PublishPeriodResolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4D5C69A2A7E166CB6E9943C2090EE /* PublishPeriodResolution.swift */; };
 		B8B1FCACC329BE8302FA92897C46F52F /* DiscoveryProvisioningState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88835FA4837E7ADE48F3595B788E4329 /* DiscoveryProvisioningState.swift */; };
@@ -331,6 +334,9 @@
 		B3B5436384E8DBDE45B1587A29FE2C34 /* pkcs7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pkcs7.h; path = "include-ios/openssl/pkcs7.h"; sourceTree = "<group>"; };
 		B3C38AB32AF45B21D14FD5AAB6D6F842 /* crypto.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = crypto.h; path = "include-ios/openssl/crypto.h"; sourceTree = "<group>"; };
 		B42CABEB29E184721CEF71200D3446CF /* ProvisionedMeshNodeDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProvisionedMeshNodeDelegate.swift; sourceTree = "<group>"; };
+		B77FB10A22B113CF007421F5 /* ModelSubscriptionListMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSubscriptionListMessage.swift; sourceTree = "<group>"; };
+		B77FB10C22B11435007421F5 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
+		B77FB10E22B11476007421F5 /* ModelSubscriptionGetMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSubscriptionGetMessage.swift; sourceTree = "<group>"; };
 		B83FA3E3C537BDCBD07E90DA7BC086CF /* ModelPublicationSetConfiguratorState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModelPublicationSetConfiguratorState.swift; sourceTree = "<group>"; };
 		BA11924B509791FBC73C154005344782 /* Pods-nRFMeshProvision_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-nRFMeshProvision_Tests.modulemap"; sourceTree = "<group>"; };
 		BB56EB7C6F5B8EE0B7DE3BBA18BAD574 /* ssl2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ssl2.h; path = "include-ios/openssl/ssl2.h"; sourceTree = "<group>"; };
@@ -824,8 +830,10 @@
 				65A0B966872A0C3B94B6FA58A701266A /* ModelSubscriptionAddMessage.swift */,
 				DB7617F9F2A52B79A9FD469C5D08EA01 /* ModelSubscriptionDeleteMessage.swift */,
 				685A040DEFAD02B017BD8D99D92F9BF4 /* ModelSubscriptionStatusMessage.swift */,
+				B77FB10A22B113CF007421F5 /* ModelSubscriptionListMessage.swift */,
 				BCE0E3C0DE77DB3C5F62D47844C3A894 /* NodeResetMesage.swift */,
 				18DC7FCF862C6C56B40C12A86B650F0E /* NodeResetStatusMessage.swift */,
+				B77FB10E22B11476007421F5 /* ModelSubscriptionGetMessage.swift */,
 			);
 			name = AccessMessages;
 			path = AccessMessages;
@@ -915,6 +923,7 @@
 				21FC6CE1E75672DCC07507F9A5959C7E /* OpenSSLHelper.m */,
 				687C20D592A30DEF9A024EAE1B780BB1 /* ProvisioningPDU.swift */,
 				01B4D5C69A2A7E166CB6E9943C2090EE /* PublishPeriodResolution.swift */,
+				B77FB10C22B11435007421F5 /* ModelType.swift */,
 			);
 			name = Utils;
 			path = nRFMeshProvision/Classes/Utils;
@@ -1097,6 +1106,7 @@
 				0BE03AEA8946193527645A8C88D75A48 /* AppKeyStatusMessage.swift in Sources */,
 				D8C3086E4D965A34154CC587A8928AB6 /* CompanyIdentifiers.swift in Sources */,
 				B8C5096A39764D49411909FC4711C594 /* CompositionElement.swift in Sources */,
+				B77FB10F22B11476007421F5 /* ModelSubscriptionGetMessage.swift in Sources */,
 				733129B48E30B3F39334074AD93C251D /* CompositionGetConfiguratorState.swift in Sources */,
 				514E6B2E986B3C8F4666BD173FBD46B2 /* CompositionGetMessage.swift in Sources */,
 				8A7644BFE996E0568AA535ADBBA8859A /* CompositionStatusMessage.swift in Sources */,
@@ -1124,6 +1134,7 @@
 				77A65E7FF3FC0B8054CAD223954435B8 /* InputOutOfBoundActions.swift in Sources */,
 				14418768B92BB595F2F47A8F2C37B803 /* InviteCapabilities.swift in Sources */,
 				E387C5D9731BBA67AFC49F56CA0DC3CD /* InviteProvisioningState.swift in Sources */,
+				B77FB10B22B113CF007421F5 /* ModelSubscriptionListMessage.swift in Sources */,
 				60E9612F1DF2289F8C78B06825D9435D /* LowerTransportLayer.swift in Sources */,
 				265DE27568456A6C72FB6007ECEFE1D0 /* LowerTransportPDUParams.swift in Sources */,
 				2022061D643F71C9BE2EE28A50EDDA29 /* MeshAddressTypes.swift in Sources */,
@@ -1168,6 +1179,7 @@
 				C40B3CB9FD715A9D80345E86BE718B60 /* ProvisioningStateProtocol.swift in Sources */,
 				2724120E31EFD26316702D82A97585D5 /* PublicKeyInformationAvailability.swift in Sources */,
 				6289B044D23AA557C73D239011B3E0B3 /* PublicKeyProvisioningState.swift in Sources */,
+				B77FB10D22B11435007421F5 /* ModelType.swift in Sources */,
 				B8442105DFDF67F56C5063E6BF9CFBBC /* PublishPeriodResolution.swift in Sources */,
 				E2BCD891ADAA551D0C51D61AA5E170B8 /* RandomConfirmationProvisioningState.swift in Sources */,
 				6BA9B2D347168935AB38C6A3BE7D03C6 /* SequenceNumber.swift in Sources */,

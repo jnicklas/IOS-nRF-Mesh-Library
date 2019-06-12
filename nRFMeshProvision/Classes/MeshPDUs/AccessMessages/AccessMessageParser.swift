@@ -31,6 +31,10 @@ public struct AccessMessageParser {
             return GenericOnOffStatusMessage(withPayload: someData, andSoruceAddress: aSourceAddress)
         case Data([0x82, 0x08]):
             return GenericLevelStatusMessage(withPayload: someData, andSoruceAddress: aSourceAddress)
+        case Data([0x80, 0x2A]):
+            return ModelSubscriptionListMessage(modelType: .sig, withPayload: someData, andSourceAddress: aSourceAddress)
+        case Data([0x80, 0x2C]):
+            return ModelSubscriptionListMessage(modelType: .vendor, withPayload: someData, andSourceAddress: aSourceAddress)
         default:
             return nil
         }
