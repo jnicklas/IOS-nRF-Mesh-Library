@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ModelSubsriptionOverwriteMessage {
+public struct ModelSubscriptionOverwriteMessage {
     var opcode  : Data
     var payload : Data
     
