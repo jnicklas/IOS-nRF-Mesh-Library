@@ -831,9 +831,9 @@
 				DB7617F9F2A52B79A9FD469C5D08EA01 /* ModelSubscriptionDeleteMessage.swift */,
 				685A040DEFAD02B017BD8D99D92F9BF4 /* ModelSubscriptionStatusMessage.swift */,
 				B77FB10A22B113CF007421F5 /* ModelSubscriptionListMessage.swift */,
+				B77FB10E22B11476007421F5 /* ModelSubscriptionGetMessage.swift */,
 				BCE0E3C0DE77DB3C5F62D47844C3A894 /* NodeResetMesage.swift */,
 				18DC7FCF862C6C56B40C12A86B650F0E /* NodeResetStatusMessage.swift */,
-				B77FB10E22B11476007421F5 /* ModelSubscriptionGetMessage.swift */,
 			);
 			name = AccessMessages;
 			path = AccessMessages;

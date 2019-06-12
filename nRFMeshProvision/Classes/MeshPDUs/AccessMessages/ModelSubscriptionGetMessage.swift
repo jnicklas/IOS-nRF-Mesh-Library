@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ConfigVendorModelSubscriptionGetMessage {
+public struct ModelSubscriptionGetMessage {
     var opcode  : Data
     var payload : Data
     

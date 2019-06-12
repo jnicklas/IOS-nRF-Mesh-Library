@@ -8,6 +8,6 @@
 import Foundation
 
 public enum ModelType {
-    case .sig
-    case .vendor
+    case sig
+    case vendor
 }
