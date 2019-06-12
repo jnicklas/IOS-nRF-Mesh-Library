@@ -109,6 +109,7 @@
 		B77FB10B22B113CF007421F5 /* ModelSubscriptionListMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FB10A22B113CF007421F5 /* ModelSubscriptionListMessage.swift */; };
 		B77FB10D22B11435007421F5 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FB10C22B11435007421F5 /* ModelType.swift */; };
 		B77FB10F22B11476007421F5 /* ModelSubscriptionGetMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FB10E22B11476007421F5 /* ModelSubscriptionGetMessage.swift */; };
+		B77FB11122B14372007421F5 /* ModelSubscriptionOverwriteMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77FB11022B14372007421F5 /* ModelSubscriptionOverwriteMessage.swift */; };
 		B7DDE2B356F0CE60DB1559AB19161CF0 /* ModelAppUnbindConfiguratorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB09294E105B48781AA71892CD3B2F /* ModelAppUnbindConfiguratorState.swift */; };
 		B8442105DFDF67F56C5063E6BF9CFBBC /* PublishPeriodResolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4D5C69A2A7E166CB6E9943C2090EE /* PublishPeriodResolution.swift */; };
 		B8B1FCACC329BE8302FA92897C46F52F /* DiscoveryProvisioningState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88835FA4837E7ADE48F3595B788E4329 /* DiscoveryProvisioningState.swift */; };
@@ -337,6 +338,7 @@
 		B77FB10A22B113CF007421F5 /* ModelSubscriptionListMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSubscriptionListMessage.swift; sourceTree = "<group>"; };
 		B77FB10C22B11435007421F5 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
 		B77FB10E22B11476007421F5 /* ModelSubscriptionGetMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSubscriptionGetMessage.swift; sourceTree = "<group>"; };
+		B77FB11022B14372007421F5 /* ModelSubscriptionOverwriteMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSubscriptionOverwriteMessage.swift; sourceTree = "<group>"; };
 		B83FA3E3C537BDCBD07E90DA7BC086CF /* ModelPublicationSetConfiguratorState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModelPublicationSetConfiguratorState.swift; sourceTree = "<group>"; };
 		BA11924B509791FBC73C154005344782 /* Pods-nRFMeshProvision_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-nRFMeshProvision_Tests.modulemap"; sourceTree = "<group>"; };
 		BB56EB7C6F5B8EE0B7DE3BBA18BAD574 /* ssl2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ssl2.h; path = "include-ios/openssl/ssl2.h"; sourceTree = "<group>"; };
@@ -829,6 +831,7 @@
 				F4962766F22D3B2D2645A9446872FC3F /* ModelPublicationStatusMessage.swift */,
 				65A0B966872A0C3B94B6FA58A701266A /* ModelSubscriptionAddMessage.swift */,
 				DB7617F9F2A52B79A9FD469C5D08EA01 /* ModelSubscriptionDeleteMessage.swift */,
+				B77FB11022B14372007421F5 /* ModelSubscriptionOverwriteMessage.swift */,
 				685A040DEFAD02B017BD8D99D92F9BF4 /* ModelSubscriptionStatusMessage.swift */,
 				B77FB10A22B113CF007421F5 /* ModelSubscriptionListMessage.swift */,
 				B77FB10E22B11476007421F5 /* ModelSubscriptionGetMessage.swift */,
@@ -1112,6 +1115,7 @@
 				8A7644BFE996E0568AA535ADBBA8859A /* CompositionStatusMessage.swift in Sources */,
 				91DEE31D01E1F272B9C16DB6A86BD742 /* ConfiguratorStateProtocol.swift in Sources */,
 				BCC8612C45E91B76F9D30897578A5670 /* ConfirmationProvisioningState.swift in Sources */,
+				B77FB11122B14372007421F5 /* ModelSubscriptionOverwriteMessage.swift in Sources */,
 				90E0252B9DFF2A8082AB5A0E4B9034C2 /* ControlMessagePDU.swift in Sources */,
 				9AFE7E2452335D32C22698F35E592BB2 /* Data+utils.swift in Sources */,
 				2D9E98A27DB360E5226732E97EB8814F /* DataDistributionProvisioningState.swift in Sources */,
