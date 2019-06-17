@@ -49,10 +49,12 @@ public struct UpperTransportLayer {
             var opcode = Data()
             if let payload = decryptedPayload {
                 if payload.count > 0 {
-                    if payload[0] >= 0x80 {
-                        opcode.append(payload[0...1])
-                    } else {
+                    if((payload[0] & 0x80) == 0) {
                         opcode.append(payload[0])
+                    } else if((payload[0] & 0xC0) == 0x80) {
+                        opcode.append(payload[0...1])
+                    } else if((payload[0] & 0xC0) == 0xC0) {
+                        opcode.append(payload[0...2])
                     }
                     params = UpperTransportPDUParams(withPayload: payload, opcode: opcode, IVIndex: anIVIndex, key: key, ttl: Data([0x04]), seq: SequenceNumber(), src: aSRC, dst: aDST, nonce: nonce, ctl: isControl, afk: isApplicationKey, aid: applicationId)
                 } else {
