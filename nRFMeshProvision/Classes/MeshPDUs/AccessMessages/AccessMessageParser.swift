@@ -8,7 +8,6 @@
 import Foundation
 
 public struct AccessMessageParser {
-    
     public func parseData(_ someData: Data, withOpcode anOpcode: Data, sourceAddress aSourceAddress: Data) -> Any? {
         switch anOpcode {
             //Configuration Messages
@@ -36,7 +35,7 @@ public struct AccessMessageParser {
         case Data([0x80, 0x2C]):
             return ModelSubscriptionListMessage(modelType: .vendor, withPayload: someData, andSourceAddress: aSourceAddress)
         default:
-            return nil
+            return UnknownMessage(withOpcode: anOpcode, andPayload: someData, andSourceAddress: aSourceAddress)
         }
     }
 }
